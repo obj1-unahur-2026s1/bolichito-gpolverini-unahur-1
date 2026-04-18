@@ -1,0 +1,111 @@
+import src.bolichito.*
+import src.objetos.*
+import src.personas.*
+import src.colores.*
+
+describe "Bolichito | Setup: pelota en vidriera y muñeco en mostrador" {
+    test "Given: pelota en vidriera, muñeco en mostrador | When: consultamos brilla() | Then: debería retornar false" {
+        assert.notThat(bolichito.brilla())
+    }
+    test "Given: pelota en vidriera, muñeco en mostrador | When: consultamos esMonocromatico() | Then: debería retornar false" {
+        assert.notThat(bolichito.esMonocromatico())
+    }
+    test "Given: pelota en vidriera, muñeco en mostrador | When: consultamos estaEquilibrado() | Then: debería retornar false" {
+        assert.notThat(bolichito.estaEquilibrado())
+    }
+    test "Given: pelota en vidriera, muñeco en mostrador | When: consultamos tieneObjetoDeColor(rojo) | Then: debería retornar false" {
+        assert.notThat(bolichito.tieneObjetoDeColor(rojo))
+    }
+    test "Given: pelota en vidriera, muñeco en mostrador | When: consultamos tieneObjetoDeColor(pardo) | Then: debería retornar true" {
+        assert.that(bolichito.tieneObjetoDeColor(pardo))
+    }
+    test "Given: pelota en vidriera, muñeco en mostrador | When: consultamos tieneObjetoDeColor(celeste) | Then: debería retornar true" {
+        assert.that(bolichito.tieneObjetoDeColor(celeste))
+    }
+    test "Given: pelota en vidriera, muñeco en mostrador | When: consultamos puedeMejorar() | Then: debería retornar true" {
+        assert.that(bolichito.puedeMejorar())
+    }
+    test "Given: pelota en vidriera, muñeco en mostrador | When: consultamos puedeOfrecerleAlgoA(rosa) | Then: debería retornar true" {
+        assert.that(bolichito.puedeOfrecerleAlgoA(rosa))
+    }
+    test "Given: pelota en vidriera, muñeco en mostrador | When: consultamos puedeOfrecerleAlgoA(luisa) | Then: debería retornar true" {
+        assert.that(bolichito.puedeOfrecerleAlgoA(luisa))
+    }
+    test "Given: pelota en vidriera, muñeco en mostrador | When: consultamos puedeOfrecerleAlgoA(estefania) | Then: debería retornar false" {
+        assert.notThat(bolichito.puedeOfrecerleAlgoA(estefania))
+    }
+}
+
+
+describe "Bolichito | Setup: remera en vidriera y pelota en mostrador" {
+    method initialize() {
+        bolichito.objetoEnVidriera(remera)
+        bolichito.objetoEnMostrador(pelota)
+    }
+    test "Given: remera en vidriera, pelota en mostrador | When: consultamos brilla() | Then: debería retornar false" {
+        assert.notThat(bolichito.brilla())
+    }
+    test "Given: remera en vidriera, pelota en mostrador | When: consultamos esMonocromatico() | Then: debería retornar false" {
+        assert.notThat(bolichito.esMonocromatico())
+    }
+    test "Given: remera en vidriera, pelota en mostrador | When: consultamos estaEquilibrado() | Then: debería retornar true" {
+        assert.that(bolichito.estaEquilibrado())
+    }
+    test "Given: remera en vidriera, pelota en mostrador | When: consultamos tieneObjetoDeColor(rojo) | Then: debería retornar true" {
+        assert.that(bolichito.tieneObjetoDeColor(rojo))
+    }
+    test "Given: remera en vidriera, pelota en mostrador | When: consultamos puedeMejorar() | Then: debería retornar false" {
+        assert.notThat(bolichito.puedeMejorar())
+    }
+    test "Given: remera en vidriera, pelota en mostrador | When: consultamos puedeOfrecerleAlgoA(estefania) | Then: debería retornar true" {
+        assert.that(bolichito.puedeOfrecerleAlgoA(estefania))
+    }
+    test "Given: remera en vidriera, pelota en mostrador | When: consultamos puedeOfrecerleAlgoA(juan) | Then: debería retornar true" {
+        assert.that(bolichito.puedeOfrecerleAlgoA(juan))
+    }
+    test "Given: remera en vidriera, pelota en mostrador | When: consultamos puedeOfrecerleAlgoA(rosa) | Then: debería retornar true" {
+        assert.that(bolichito.puedeOfrecerleAlgoA(rosa))
+    }
+    test "Given: remera en vidriera, pelota en mostrador | When: consultamos puedeOfrecerleAlgoA(luisa) | Then: debería retornar false" {
+        assert.notThat(bolichito.puedeOfrecerleAlgoA(luisa))
+    }
+}
+
+describe "Bolichito | Setup: arito en vidriera y placa en mostrador" {
+    method initialize() {
+        bolichito.objetoEnVidriera(arito)
+        bolichito.objetoEnMostrador(placa)
+    }
+    test "Given: arito en vidriera, placa en mostrador | When: consultamos brilla() | Then: debería retornar true" {
+        assert.that(bolichito.brilla())
+    }
+    test "Given: arito en vidriera, placa en mostrador | When: consultamos esMonocromatico() | Then: debería retornar false" {
+        assert.notThat(bolichito.esMonocromatico())
+    }
+    test "Given: arito en vidriera, placa en mostrador con color celeste | When: consultamos esMonocromatico() | Then: debería retornar true" {
+        placa.color(celeste)
+        assert.that(bolichito.esMonocromatico())
+    }
+    test "Given: arito en vidriera, placa en mostrador | When: consultamos estaEquilibrado() | Then: debería retornar true" {
+        assert.that(bolichito.estaEquilibrado())
+    }
+    test "Given: arito en vidriera, placa en mostrador | When: consultamos puedeOfrecerleAlgoA(luisa) | Then: debería retornar true" {
+        assert.that(bolichito.puedeOfrecerleAlgoA(luisa))
+    }
+}
+
+describe "Bolichito | Setup: biblioteca en vidriera y remera en mostrador" {
+    method initialize() {
+        bolichito.objetoEnVidriera(biblioteca)
+        bolichito.objetoEnMostrador(remera)      
+    }
+    test "Given: biblioteca en vidriera, remera en mostrador | When: consultamos estaEquilibrado() | Then: debería retornar false" {
+        assert.notThat(bolichito.estaEquilibrado())
+    }
+    test "Given: biblioteca en vidriera, remera en mostrador | When: consultamos puedeMejorar() | Then: debería retornar true" {
+        assert.that(bolichito.puedeMejorar())
+    }
+    test "Given: biblioteca en vidriera, remera en mostrador | When: consultamos puedeOfrecerleAlgoA(estefania) | Then: debería retornar true" {
+        assert.that(bolichito.puedeOfrecerleAlgoA(estefania))
+    }
+}

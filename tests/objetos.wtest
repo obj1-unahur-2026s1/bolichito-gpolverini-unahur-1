@@ -1,0 +1,118 @@
+import src.objetos.*
+import src.colores.*
+import src.materiales.*
+
+describe "Objeto | Verificar propiedades de pelota" {
+    test "Given: pelota | When: consultamos material, color y peso | Then: debería ser cuero, pardo y 1300g" {
+        assert.equals(cuero, pelota.material())
+        assert.equals(pardo, pelota.color())
+        assert.equals(1300, pelota.peso())
+    }
+    test "Given: pelota | When: consultamos brilla() | Then: debería retornar false porque es de cuero" {
+        assert.notThat(pelota.brilla())
+    }
+}
+
+describe "Objeto | Verificar propiedades de remera" {
+    test "Given: remera | When: consultamos material, color y peso | Then: debería ser lino, roja y 800g" {
+        assert.equals(lino, remera.material())
+        assert.equals(rojo, remera.color())
+        assert.equals(800, remera.peso())
+    }
+    test "Given: remera | When: consultamos brilla() | Then: debería retornar false porque es de lino" {
+        assert.notThat(remera.brilla())
+    }
+}
+
+describe "Objeto | Verificar propiedades de biblioteca" {
+    test "Given: biblioteca | When: consultamos material, color y peso | Then: debería ser madera, verde y 8000g" {
+        assert.equals(madera, biblioteca.material())
+        assert.equals(verde, biblioteca.color())
+        assert.equals(8000, biblioteca.peso())
+    }
+    test "Given: biblioteca | When: consultamos brilla() | Then: debería retornar false porque es de madera" {
+        assert.notThat(biblioteca.brilla())
+    }
+}
+
+describe "Objeto | Verificar propiedades de muñeco" {
+    test "Given: muñeco | When: consultamos material, color y peso | Then: debería ser vidrio, celeste y 200g" {
+        assert.equals(vidrio, muñeco.material())
+        assert.equals(celeste, muñeco.color())
+        assert.equals(200, muñeco.peso())
+    }
+    test "Given: muñeco | When: consultamos brilla() | Then: debería retornar true porque es de vidrio" {
+        assert.that(muñeco.brilla())
+    }
+}
+
+describe "Objeto | Verificar propiedades de placa" {
+    test "Given: placa | When: consultamos material, color y peso | Then: debería ser cobre, roja y 200g" {
+        assert.equals(cobre, placa.material())
+        assert.equals(rojo, placa.color())
+        assert.equals(200, placa.peso())
+    }
+    test "Given: placa | When: consultamos brilla() | Then: debería retornar true porque es de cobre" {
+        assert.that(placa.brilla())
+    }
+}
+
+describe "Objeto | Verificar propiedades de arito" {
+    test "Given: arito | When: consultamos material, color y peso | Then: debería ser cobre, celeste y 180g" {
+        assert.equals(cobre, arito.material())
+        assert.equals(celeste, arito.color())
+        assert.equals(180, arito.peso())
+    }
+    test "Given: arito | When: consultamos brilla() | Then: debería retornar true porque es de cobre" {
+        assert.that(arito.brilla())
+    }
+}
+
+describe "Objeto | Verificar propiedades de banquito" {
+    test "Given: banquito | When: consultamos material, color y peso | Then: debería ser madera, naranja y 1700g" {
+        assert.equals(madera, banquito.material())
+        assert.equals(naranja, banquito.color())
+        assert.equals(1700, banquito.peso())
+    }
+    test "Given: banquito | When: consultamos brilla() | Then: debería retornar false porque es de madera" {
+        assert.notThat(banquito.brilla())
+    }
+}
+
+describe "Objeto | Verificar propiedades de cajita" {
+    test "Given: cajita | When: consultamos material, color y peso | Then: debería ser cobre, roja y 580g con arito adentro" {
+        assert.equals(cobre, cajita.material())
+        assert.equals(rojo, cajita.color())
+        assert.equals(580, cajita.peso())
+    }
+    test "Given: cajita | When: consultamos brilla() | Then: debería retornar true porque es de cobre" {
+        assert.that(cajita.brilla())
+    }
+}
+
+describe "Objeto | Verificar cambios de estado mutable" {
+    test "Given: muñeco | When: cambiamos peso a 500 | Then: debería retornar 500" {
+        muñeco.peso(500)
+        assert.equals(500, muñeco.peso())
+    }
+    test "Given: placa | When: cambiamos color a verde | Then: debería retornar verde" {
+        placa.color(verde)
+        assert.equals(verde, placa.color())
+    }
+    test "Given: placa | When: cambiamos peso a 1500 | Then: debería retornar 1500" {
+        placa.peso(1500)
+        assert.equals(1500, placa.peso())
+    }
+    test "Given: banquito | When: cambiamos color a celeste | Then: debería retornar celeste" {
+        banquito.color(celeste)
+        assert.equals(celeste, banquito.color())
+    }
+    test "Given: cajita | When: cambiamos contenido a remera | Then: peso debería ser 1200g" {
+        cajita.contenido(remera)
+        assert.equals(1200, cajita.peso())
+    }
+    test "Given: cajita | When: cambiamos contenido a biblioteca | Then: peso debería ser 8400g" {
+        cajita.contenido(biblioteca)
+        assert.equals(8400, cajita.peso())
+    }
+}

@@ -1,0 +1,22 @@
+import src.colores.*
+
+describe "Color | Verificar si un color es fuerte" {
+    test "Given: rojo | When: consultamos esFuerte() | Then: debería retornar true" {
+        assert.that(rojo.esFuerte())
+    }
+    test "Given: verde | When: consultamos esFuerte() | Then: debería retornar true" {
+        assert.that(verde.esFuerte())
+    }
+    test "Given: naranja | When: consultamos esFuerte() | Then: debería retornar true" {
+        assert.that(naranja.esFuerte())
+    }
+}
+
+describe "Color | Verificar si un color NO es fuerte" {
+    test "Given: celeste | When: consultamos esFuerte() | Then: debería retornar false" {
+        assert.notThat(celeste.esFuerte())
+    }
+    test "Given: pardo | When: consultamos esFuerte() | Then: debería retornar false" {
+        assert.notThat(pardo.esFuerte())
+    }
+}

@@ -1,0 +1,136 @@
+import src.personas.*
+import src.objetos.*
+import src.colores.*
+
+describe "Rosa | Preferencias: objetos de 2kg o menos" {
+    test "Given: pelota (1300g) | When: consultamos leGusta() | Then: debería retornar true" {
+        assert.that(rosa.leGusta(pelota))
+    }
+    test "Given: remera (800g) | When: consultamos leGusta() | Then: debería retornar true" {
+        assert.that(rosa.leGusta(remera))
+    }
+    test "Given: biblioteca (8000g) | When: consultamos leGusta() | Then: debería retornar false" {
+        assert.notThat(rosa.leGusta(biblioteca))
+    }
+    test "Given: muñeco (200g) | When: consultamos leGusta() | Then: debería retornar true" {
+        assert.that(rosa.leGusta(muñeco))
+    }
+    test "Given: placa (200g) | When: consultamos leGusta() | Then: debería retornar true" {
+        assert.that(rosa.leGusta(placa))
+    }
+    test "Given: arito (180g) | When: consultamos leGusta() | Then: debería retornar true" {
+        assert.that(rosa.leGusta(arito))
+    }
+    test "Given: banquito (1700g) | When: consultamos leGusta() | Then: debería retornar true" {
+        assert.that(rosa.leGusta(banquito))
+    }
+    test "Given: cajita (580g) | When: consultamos leGusta() | Then: debería retornar true" {
+        assert.that(rosa.leGusta(cajita))
+    }
+    test "Given: objeto con peso exacto 2000g | When: consultamos leGusta() | Then: debería retornar true" {
+        muñeco.peso(2000)
+        assert.that(rosa.leGusta(muñeco))
+    }
+    test "Given: objeto con peso 2001g | When: consultamos leGusta() | Then: debería retornar false" {
+        muñeco.peso(2001)
+        assert.notThat(rosa.leGusta(muñeco))
+    }
+}
+
+describe "Estefanía | Preferencias: objetos de colores fuertes" {
+    test "Given: pelota (parda) | When: consultamos leGusta() | Then: debería retornar false" {
+        assert.notThat(estefania.leGusta(pelota))
+    }
+    test "Given: remera (roja) | When: consultamos leGusta() | Then: debería retornar true" {
+        assert.that(estefania.leGusta(remera))
+    }
+    test "Given: biblioteca (verde) | When: consultamos leGusta() | Then: debería retornar true" {
+        assert.that(estefania.leGusta(biblioteca))
+    }
+    test "Given: muñeco (celeste) | When: consultamos leGusta() | Then: debería retornar false" {
+        assert.notThat(estefania.leGusta(muñeco))
+    }
+    test "Given: placa (roja) | When: consultamos leGusta() | Then: debería retornar true" {
+        assert.that(estefania.leGusta(placa))
+    }
+    test "Given: arito (celeste) | When: consultamos leGusta() | Then: debería retornar false" {
+        assert.notThat(estefania.leGusta(arito))
+    }
+    test "Given: banquito (naranja) | When: consultamos leGusta() | Then: debería retornar true" {
+        assert.that(estefania.leGusta(banquito))
+    }
+    test "Given: cajita (roja) | When: consultamos leGusta() | Then: debería retornar true" {
+        assert.that(estefania.leGusta(cajita))
+    }
+}
+
+describe "Luisa | Preferencias: objetos de materiales brillantes" {
+    test "Given: pelota (cuero) | When: consultamos leGusta() | Then: debería retornar false" {
+        assert.notThat(luisa.leGusta(pelota))
+    }
+    test "Given: remera (lino) | When: consultamos leGusta() | Then: debería retornar false" {
+        assert.notThat(luisa.leGusta(remera))
+    }
+    test "Given: biblioteca (madera) | When: consultamos leGusta() | Then: debería retornar false" {
+        assert.notThat(luisa.leGusta(biblioteca))
+    }
+    test "Given: muñeco (vidrio) | When: consultamos leGusta() | Then: debería retornar true" {
+        assert.that(luisa.leGusta(muñeco))
+    }
+    test "Given: placa (cobre) | When: consultamos leGusta() | Then: debería retornar true" {
+        assert.that(luisa.leGusta(placa))
+    }
+    test "Given: arito (cobre) | When: consultamos leGusta() | Then: debería retornar true" {
+        assert.that(luisa.leGusta(arito))
+    }
+    test "Given: banquito (madera) | When: consultamos leGusta() | Then: debería retornar false" {
+        assert.notThat(luisa.leGusta(banquito))
+    }
+    test "Given: cajita (cobre) | When: consultamos leGusta() | Then: debería retornar true" {
+        assert.that(luisa.leGusta(cajita))
+    }
+}
+
+describe "Juan | Preferencias: colores no fuertes O peso entre 1200-1800g" {
+    test "Given: pelota (parda, 1300g) | When: consultamos leGusta() | Then: debería retornar true" {
+        assert.that(juan.leGusta(pelota))
+    }
+    test "Given: remera (roja, 800g) | When: consultamos leGusta() | Then: debería retornar false" {
+        assert.notThat(juan.leGusta(remera))
+    }
+    test "Given: biblioteca (verde, 8000g) | When: consultamos leGusta() | Then: debería retornar false" {
+        assert.notThat(juan.leGusta(biblioteca))
+    }
+    test "Given: muñeco (celeste) | When: consultamos leGusta() | Then: debería retornar true" {
+        assert.that(juan.leGusta(muñeco))
+    }
+    test "Given: placa (roja, 200g) | When: consultamos leGusta() | Then: debería retornar false" {
+        assert.notThat(juan.leGusta(placa))
+    }
+    test "Given: arito (celeste) | When: consultamos leGusta() | Then: debería retornar true" {
+        assert.that(juan.leGusta(arito))
+    }
+    test "Given: banquito (1700g) | When: consultamos leGusta() | Then: debería retornar true" {
+        assert.that(juan.leGusta(banquito))
+    }
+    test "Given: objeto con peso exacto 1200g y color fuerte | When: consultamos leGusta() | Then: debería retornar true" {
+        placa.peso(1200)
+        placa.color(rojo)
+        assert.that(juan.leGusta(placa))
+    }
+    test "Given: objeto con peso exacto 1800g y color fuerte | When: consultamos leGusta() | Then: debería retornar true" {
+        placa.peso(1800)
+        placa.color(verde)
+        assert.that(juan.leGusta(placa))
+    }
+    test "Given: objeto con peso 1199g y color fuerte | When: consultamos leGusta() | Then: debería retornar false" {
+        placa.peso(1199)
+        placa.color(rojo)
+        assert.notThat(juan.leGusta(placa))
+    }
+    test "Given: objeto con peso 1801g y color fuerte | When: consultamos leGusta() | Then: debería retornar false" {
+        placa.peso(1801)
+        placa.color(verde)
+        assert.notThat(juan.leGusta(placa))
+    }
+}

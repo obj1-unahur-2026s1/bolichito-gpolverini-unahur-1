@@ -1,0 +1,22 @@
+import src.materiales.*
+
+describe "Material | Verificar si un material brilla" {
+    test "Given: cobre | When: consultamos brilla() | Then: debería retornar true" {
+        assert.that(cobre.brilla())
+    }
+    test "Given: vidrio | When: consultamos brilla() | Then: debería retornar true" {
+        assert.that(vidrio.brilla())
+    }
+}
+
+describe "Material | Verificar si un material NO brilla" {
+    test "Given: cuero | When: consultamos brilla() | Then: debería retornar false" {
+        assert.notThat(cuero.brilla())
+    }
+    test "Given: madera | When: consultamos brilla() | Then: debería retornar false" {
+        assert.notThat(madera.brilla())
+    }
+    test "Given: lino | When: consultamos brilla() | Then: debería retornar false" {
+        assert.notThat(lino.brilla())
+    }
+}
